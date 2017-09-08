@@ -12,7 +12,7 @@ This is a C++ program to analyze orientations of water molecules from multiple-f
 Use the **trjconv** tool installed with GROMACS to convert a trajectory file (**.trr**) into a multi-frame **.gro** file. Type
 
 ```bash
-gmx trjconv -f *.trr -s &.tpr -n *.ndx -pbc while -o sample.gro
+gmx trjconv -f *.trr -s *.tpr -n *.ndx -pbc whole -o sample.gro
 ```
 
 A sample output **"sample.gro"** is provided for testing **CosSq**.
@@ -33,7 +33,7 @@ sample.dip
 sample.log
 ```
 
-The **sample.cos** file prints out distant-dependent <cos^n> of water (n=1,2,3,4). The **sample.dip** file gives the z-component of polarization density of water in along z-direction.
+The **sample.cos** file prints out distant-dependent <cos\theta<sup>n</sup>> of water (n=1,2,3,4). The **sample.dip** file gives the z-component of polarization density of water in along z-direction.
 
 ## License
 
