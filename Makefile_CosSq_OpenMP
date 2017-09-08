@@ -1,0 +1,26 @@
+CurF = $(pwd)
+SOLGRO = sample.gro
+OUTPUT1 = $(subst .gro,_OP.cos,$(SOLGRO))
+OUTPUT2 = $(subst .gro,_OP.dip,$(SOLGRO))
+LOG = $(subst .gro,_OP.log,$(SOLGRO))
+
+.PHONY: clean help
+
+$(OUTPUT1) $(OUTPUT2) $(LOG): CosSq_OpenMP.out $(CurF)/$(SOLGRO)
+	./CosSq_OpenMP.out $(CurF)/$(SOLGRO) $(CurF)/$(OUTPUT1) $(CurF)/$(OUTPUT2) $(CurF)/$(LOG)
+
+CosSq_OpenMP.out: CosSq_OpenMP.o
+	g++ CosSq_OpenMP.o -o CosSq_OpenMP.out -fopenmp
+
+CosSq_OpenMP.o: CosSq_OpenMP.cpp
+	g++ -c CosSq_OpenMP.cpp -fopenmp
+
+clean:
+	rm -f *.o
+
+help:
+	@echo "Valid targets:"
+	@echo "	"$(OUTPUT1)", "$(OUTPUT2)", and "$(LOG)
+	@echo "	CosSq_OpenMP.out"
+	@echo "	CosSq_OpenMP.o"
+	@echo "	clean:	remove .o files"
