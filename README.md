@@ -33,7 +33,7 @@ sample.dip
 sample.log
 ```
 
-The **sample.cos** file prints out distant-dependent <cos$$\theta$$<sup>n</sup>> of water (n=1,2,3,4). The **sample.dip** file gives the z-component of polarization density of water in along z-direction.
+The **sample.cos** file prints out distant-dependent <cos$\theta$<sup>n</sup>> of water (n=1,2,3,4). The **sample.dip** file gives the z-component of polarization density of water in along z-direction.
 
 ## License
 
